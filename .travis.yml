@@ -1,16 +1,23 @@
 language: node_js
 sudo: true
 node_js:
-  - "6"
+- '6'
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update -q
-  - sudo apt-get install gcc-4.8 g++-4.8 -y
+- sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+- sudo apt-get update -q
+- sudo apt-get install gcc-4.8 g++-4.8 -y
 env:
-  - TRAVIS=travis CXX=g++-4.8
+- TRAVIS=travis CXX=g++-4.8
 services:
-  - mongodb
+- mongodb
 install:
-  - npm install
+- npm install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: MW8UNE0stOuqK1FuF7gwan0aBhBZjnJmUKUj7L30F7T+CTTssKboeSo9MXU8qXxWsU1oUj20Ywjzej/QUnWqcgKtBar0bi4SB8CqBOnjqMT/cwuNXG3lnOBVVxQCfX+EONR1k02ZaFH1/i+ndpA78k2JCf3i9LcpgW7kro8QqPlmPnBg/96egsgLRuS72nFfVuABobgzHO104d11FTQnxRRuG/wNdYzlGwNUnRKfbqK+Khf4PYVkrZY11ZxSuGccYbl9UAx8Q2LDiU/luNRahGsKkXUlcJVkCz1SPzbb7wscRao+bD2bXEimohPGPsmoJ8WPX9KhwUb/hmJbPDqK0KizH3QsWav9RglOVMeaSs/6jwL/7fhpd3O6z4YKMBNi0qYIR3bUtodxijrgHGWtBKaFmg6gcg9E0gztHjl5J1dRMP9ZpPuOoKQwRFho8h7ZiDWJoD1hONwdXrKEiVVTWJC6gTna090xgF4IL+izy2tUeo1iCPZwO8hZQzieoUiZov4vhm3RcOOwji1O4zGoNMXUjsqm7OOpSTTHHlGTC6DLeemShyA8HDwlI4+t9dtyQWoL3RpoGtSVDcjrer8RD/M5iVQ8S1tC0ePuy2Vyhns83OSdRCLTUOietI/AoPjRZqRoi3JglDuwEYJoIAD/dyAqI7ZXWLSI5xQd9kLWJNs=
+  app: radiant-hamlet-88082
+  on:
+    repo: krothenbaum/map-game-restful-server
