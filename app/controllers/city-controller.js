@@ -1,4 +1,4 @@
-import City from '../models/City';
+import City from '../models/city';
 
 class CityController {
   cities = async (req, res, next) => {
