@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import Constants from '../config/constants';
 
 const CitySchema = new mongoose.Schema({
     lat: Number,
@@ -7,4 +8,5 @@ const CitySchema = new mongoose.Schema({
     city: String
 });
 
-module.exports = mongoose.model('City', CitySchema);
+const CityModel = mongoose.model('City', CitySchema);
+export default CityModel;

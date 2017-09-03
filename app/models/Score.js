@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import Constants from '../config/constants';
 
 const ScoreSchema = new mongoose.Schema({
 	score: Number,
 	name: String
 });
 
-module.exports = mongoose.model('Score', ScoreSchema);
+const ScoreModel = mongoose.model('Score', ScoreSchema);
+export default ScoreModel;

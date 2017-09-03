@@ -10,7 +10,7 @@ import ScoreController from './controllers/score-controller';
 
 // import authenticate from './middleware/authenticate';
 // import accessControl from './middleware/access-control';
-// import errorHandler from './middleware/error-handler';
+import errorHandler from './middleware/error-handler';
 
 const routes = new Router();
 
@@ -44,6 +44,6 @@ routes.post('/api/score', ScoreController.create);
 // Admin
 // routes.get('/admin', accessControl('admin'), MetaController.index);
 
-// routes.use(errorHandler);
+routes.use(errorHandler);
 
 export default routes;
