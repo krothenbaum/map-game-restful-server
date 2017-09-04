@@ -6,7 +6,7 @@ import ScoreFactory from '../../factories/score-factory';
 describe(`Score API Endpoint`, () => {
   before(() => {
     return Score.remove({})
-      .then(() => Score.create(ScoreFactory.generate(10)))
+      .then(() => Score.create(ScoreFactory.generateList(10)))
   });
 
   describe('TOP SCORES', () => {
@@ -29,8 +29,9 @@ describe(`Score API Endpoint`, () => {
 
   describe('NEW SCORE', () => {
     it('should post a new score', done => {
+      const newScore = ScoreFactory.generateList(1);
       server.post('/api/score')
-      .send(ScoreFactory(1))
+      .send(newScore[0])
       .end((err, res) => {
         expect(res).to.have.status(201);
         done();

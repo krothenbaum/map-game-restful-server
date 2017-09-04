@@ -15,7 +15,6 @@ import errorHandler from './middleware/error-handler';
 const routes = new Router();
 
 //City
-routes.get('/api/cities', CityController.cities);
 routes.get('/api/randomcities', CityController.randomcities)
 
 //Score

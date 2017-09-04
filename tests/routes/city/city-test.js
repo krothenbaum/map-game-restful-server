@@ -9,35 +9,15 @@ describe(`Score API Endpoint`, () => {
       .then(() => City.create(CityFactory.generate(10)))
   });
 
-  describe('Get Cities', () => {
-    it('should return an array of 3 cities', done => {
-      server.get(`/api/cities`)
-        .end((err, res) => {
-          expect(res).to.be.json;
-          expect(res.body).to.be.a('array');
-          expect(res.body).to.have.lengthOf(3);
-          const expectedKeys = ['lat','lon','wikipedia','city'];
-          res.body.forEach(city => {
-            expect(city).to.be.a('object');
-            expect(city).to.include.keys(expectedKeys);
-          })
-          done();
-        });
-    });
-  });
-
   describe('Get a city', () => {
     it('should return a single random city', done => {
-      server.get('/api/randomcity')
+      server.get('/api/randomcities')
       .end((err, res) => {
         expect(res).to.be.json;
-        expect(res.body).to.be.a('array');
-        expect(res.body).to.have.lengthOf(1);
+        expect(res.body).to.be.a('object');
+        // expect(res.body).to.have.lengthOf(1);
         const expectedKeys = ['lat','lon','wikipedia','city'];
-        res.body.forEach(city => {
-          expect(city).to.be.a('object');
-          expect(city).to.include.keys(expectedKeys);
-        })
+        expect(res.body).to.include.keys(expectedKeys);
         done();
       });
     });

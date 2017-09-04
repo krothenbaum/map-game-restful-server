@@ -19,8 +19,8 @@ class ScoreController {
     const newScore = new Score({name: req.body.name, score: req.body.score});
 
     try {
-      const savedScore = await Score.save(newScore);
-      res.status(201).end();
+      await newScore.save();
+      res.sendStatus(201);
     } catch(err) {
       next(err);
     }
