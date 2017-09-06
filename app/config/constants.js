@@ -64,7 +64,7 @@ const environmentConfigs = {
   production: {
     mongo: {
       seed: false,
-      uri: 'mongodb://reactadmin:345Ripley@ds149551.mlab.com:49551/react-capstone',
+      uri: process.env.MONGO_URI,
     },
   },
 };
