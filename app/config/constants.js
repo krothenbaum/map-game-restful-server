@@ -40,7 +40,7 @@ const defaultConfig = {
     saltRounds: process.env.SALT_ROUNDS || 12,
   },
 };
-console.log('PROCESS.ENV=' + process.env);
+console.log('PROCESS.ENV=' + JSON.stringify(process.env));
 console.log('PROCESS.ENV.MONGO_URI= ' + process.env.MONGO_URI);
 // Environment specific overrides
 const environmentConfigs = {
