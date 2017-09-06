@@ -40,7 +40,7 @@ const defaultConfig = {
     saltRounds: process.env.SALT_ROUNDS || 12,
   },
 };
-
+console.log('PROCESS.ENV.MONGO_URI= ' + process.env.MONGO_URI);
 // Environment specific overrides
 const environmentConfigs = {
   development: {
@@ -63,10 +63,11 @@ const environmentConfigs = {
   production: {
     mongo: {
       seed: false,
-      uri: process.env.MONGO_URI,
+      uri: 'mongodb://reactadmin:345Ripley@ds149551.mlab.com:49551/react-capstone',
     },
   },
 };
+
 
 // Recursively merge configurations
 export default merge(defaultConfig, environmentConfigs[process.env.NODE_ENV] || {});
